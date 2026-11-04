@@ -1,0 +1,246 @@
+
+/* CONFIGURAÇÕES GERAIS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --azul-fundo: #dff2fc;
+    --azul-claro: #c9eafa;
+    --azul: #368bb8;
+    --azul-escuro: #174d6b;
+    --preto: #111111;
+    --branco: #ffffff;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background: var(--azul-fundo);
+    color: var(--preto);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* CABEÇALHO */
+
+header {
+    width: 100%;
+    padding: 34px 20px 18px;
+    text-align: center;
+}
+
+.logo {
+    display: inline-block;
+    color: var(--azul-escuro);
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    font-weight: 900;
+    letter-spacing: 3px;
+    line-height: 1;
+    text-shadow:
+        3px 4px 0 #fff,
+        6px 7px 0 #111;
+}
+
+/* MENU */
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 18px 20px;
+}
+
+nav a {
+    padding: 11px 18px;
+    border: 2px solid transparent;
+    border-radius: 24px;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+nav a:hover,
+nav a.ativo {
+    background: var(--preto);
+    color: var(--branco);
+}
+
+/* CONTEÚDO */
+
+main {
+    width: min(1100px, 92%);
+    margin: 30px auto 60px;
+}
+
+.titulo-pagina {
+    margin-bottom: 12px;
+    color: var(--azul-escuro);
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-align: center;
+}
+
+.subtitulo {
+    margin-bottom: 30px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* PÁGINA INICIAL */
+
+.menu-inicial {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 90px;
+}
+
+.item-inicial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.icone {
+    display: flex;
+    width: 145px;
+    height: 145px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--preto);
+    color: var(--branco);
+    font-size: 4.3rem;
+    transition: transform 0.2s ease;
+}
+
+.item-inicial:hover .icone {
+    transform: translateY(-7px) scale(1.04);
+}
+
+/* CARTÕES */
+
+.grade {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.card {
+    padding: 24px;
+    border: 2px solid rgba(23, 77, 107, 0.12);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow: 0 5px 14px rgba(23, 77, 107, 0.08);
+}
+
+.card h2,
+.card h3 {
+    margin-bottom: 12px;
+    color: var(--azul-escuro);
+}
+
+.card p {
+    line-height: 1.6;
+}
+
+/* LISTAS */
+
+.lista {
+    display: grid;
+    gap: 14px;
+}
+
+.item-lista {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 18px;
+    border-radius: 14px;
+    background: var(--branco);
+}
+
+.data {
+    min-width: 66px;
+    padding: 10px 7px;
+    border-radius: 12px;
+    background: var(--azul-claro);
+    color: var(--azul-escuro);
+    text-align: center;
+    font-weight: bold;
+}
+
+.item-lista h3 {
+    margin-bottom: 5px;
+    color: var(--azul-escuro);
+}
+
+/* RODAPÉ */
+
+footer {
+    padding: 22px;
+    background: var(--azul-escuro);
+    color: var(--branco);
+    text-align: center;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 800px) {
+
+    .menu-inicial {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 45px;
+    }
+
+    .icone {
+        width: 120px;
+        height: 120px;
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 560px) {
+
+    header {
+        padding-top: 28px;
+    }
+
+    nav {
+        gap: 6px;
+    }
+
+    nav a {
+        padding: 9px 12px;
+        font-size: 0.9rem;
+    }
+
+    .grade {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-inicial {
+        gap: 30px 12px;
+    }
+
+    .icone {
+        width: 100px;
+        height: 100px;
+        font-size: 3rem;
+    }
+
+    .item-inicial {
+        font-size: 1.05rem;
+    }
+}
