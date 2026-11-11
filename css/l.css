@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f0f4f8;
+}
+
+header {
+    background: #174b83;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    background: #10365f;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.container {
+    max-width: 750px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.painel {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px #0002;
+}
+
+h2 {
+    color: #174b83;
+    text-align: center;
+}
+
+p {
+    line-height: 1.5;
+}
+
+.campo {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 130px;
+    resize: vertical;
+}
+
+button {
+    background: #1e4279;
+    color: white;
+    padding: 13px;
+    border: none;
+    border-radius: 7px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #10365f;
+}
+
+#resultado {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    display: none;
+}
+
+.sucesso {
+    display: block !important;
+    background: #d9f5df;
+    color: #155724;
+}
+
+.erro {
+    display: block !important;
+    background: #ffe0e0;
+    color: #900;
+}
+
+footer {
+    background: #174b83;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}

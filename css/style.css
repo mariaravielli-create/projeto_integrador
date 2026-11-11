@@ -1,5 +1,7 @@
 
-/* CONFIGURAÇÕES GERAIS */
+/* ===========================
+   MEUESCOLA - CSS PRINCIPAL
+   =========================== */
 
 * {
     margin: 0;
@@ -9,238 +11,321 @@
 
 :root {
     --azul-fundo: #dff2fc;
-    --azul-claro: #c9eafa;
-    --azul: #368bb8;
-    --azul-escuro: #174d6b;
-    --preto: #111111;
+    --azul: #3298d5;
+    --azul-escuro: #24506f;
+    --preto: #000000;
     --branco: #ffffff;
+    --texto: #28445d;
+    --cinza: #71869a;
+    --borda: #e7edf4;
 }
 
 body {
-    min-height: 100vh;
-    font-family: "Trebuchet MS", Arial, sans-serif;
-    background: var(--azul-fundo);
-    color: var(--preto);
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
+    font-family: Arial, sans-serif;
+    background: white;
+    color: var(--texto);
 }
 
 /* CABEÇALHO */
 
-header {
-    width: 100%;
-    padding: 34px 20px 18px;
+.cabecalho {
+    background: var(--azul-fundo);
+    padding: 25px;
     text-align: center;
 }
 
 .logo {
-    display: inline-block;
-    color: var(--azul-escuro);
-    font-size: clamp(2.8rem, 8vw, 6rem);
+    font-size: 55px;
     font-weight: 900;
-    letter-spacing: 3px;
-    line-height: 1;
-    text-shadow:
-        3px 4px 0 #fff,
-        6px 7px 0 #111;
+    color: white;
+    -webkit-text-stroke: 2px black;
+    text-shadow: 4px 5px black;
+    letter-spacing: 2px;
 }
 
 /* MENU */
 
-nav {
+.menu {
+    background: var(--azul-fundo);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 14px;
-    padding: 18px 20px;
+    gap: 45px;
+    padding: 25px 15px;
 }
 
-nav a {
-    padding: 11px 18px;
-    border: 2px solid transparent;
-    border-radius: 24px;
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: black;
     font-weight: bold;
-    transition: 0.2s ease;
+    gap: 10px;
+    text-align: center;
 }
 
-nav a:hover,
-nav a.ativo {
-    background: var(--preto);
-    color: var(--branco);
+.icone {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+    transition: 0.3s;
+}
+
+.menu-item:hover .icone {
+    transform: scale(1.08);
+    background: #24506f;
+}
+
+.menu-item span:last-child {
+    text-shadow: 1px 2px #aaa;
 }
 
 /* CONTEÚDO */
 
-main {
-    width: min(1100px, 92%);
-    margin: 30px auto 60px;
+.conteudo {
+    max-width: 1400px;
+    margin: auto;
+    padding: 35px 5%;
 }
 
-.titulo-pagina {
-    margin-bottom: 12px;
-    color: var(--azul-escuro);
-    font-size: clamp(2rem, 5vw, 3rem);
-    text-align: center;
+.titulo {
+    font-size: 28px;
+    margin-bottom: 8px;
+    color: #243f5b;
 }
 
 .subtitulo {
-    margin-bottom: 30px;
-    text-align: center;
-    line-height: 1.6;
+    color: var(--cinza);
+    margin-bottom: 25px;
 }
 
-/* PÁGINA INICIAL */
+/* PAINÉIS */
 
-.menu-inicial {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    margin-top: 90px;
+.painel {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    border: 1px solid var(--borda);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    margin-bottom: 25px;
 }
 
-.item-inicial {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-    text-align: center;
-    font-size: 1.3rem;
-    font-weight: bold;
-}
-
-.icone {
-    display: flex;
-    width: 145px;
-    height: 145px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: var(--preto);
-    color: var(--branco);
-    font-size: 4.3rem;
-    transition: transform 0.2s ease;
-}
-
-.item-inicial:hover .icone {
-    transform: translateY(-7px) scale(1.04);
+.painel h2 {
+    margin-bottom: 15px;
 }
 
 /* CARTÕES */
 
 .grade {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
-.card {
-    padding: 24px;
-    border: 2px solid rgba(23, 77, 107, 0.12);
+.cartao {
+    background: white;
+    border: 1px solid var(--borda);
     border-radius: 18px;
-    background: rgba(255, 255, 255, 0.78);
-    box-shadow: 0 5px 14px rgba(23, 77, 107, 0.08);
+    padding: 22px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
 }
 
-.card h2,
-.card h3 {
-    margin-bottom: 12px;
-    color: var(--azul-escuro);
+.cartao h3 {
+    margin-bottom: 10px;
 }
 
-.card p {
-    line-height: 1.6;
+/* BOTÕES */
+
+.botao {
+    display: inline-block;
+    background: var(--azul);
+    color: white;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 15px;
 }
 
-/* LISTAS */
-
-.lista {
-    display: grid;
-    gap: 14px;
+.botao:hover {
+    background: var(--azul-escuro);
 }
 
-.item-lista {
+/* TABELAS */
+
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.tabela th,
+.tabela td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--borda);
+}
+
+.tabela th {
+    background: #f1f7fb;
+    color: #45647d;
+}
+
+/* FORMULÁRIOS */
+
+.formulario {
     display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    padding: 18px;
-    border-radius: 14px;
-    background: var(--branco);
+    flex-direction: column;
+    gap: 15px;
 }
 
-.data {
-    min-width: 66px;
-    padding: 10px 7px;
-    border-radius: 12px;
-    background: var(--azul-claro);
-    color: var(--azul-escuro);
-    text-align: center;
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.campo label {
     font-weight: bold;
 }
 
-.item-lista h3 {
-    margin-bottom: 5px;
-    color: var(--azul-escuro);
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d5e1e9;
+    border-radius: 9px;
+    font-size: 15px;
+    outline: none;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    border-color: var(--azul);
+}
+
+.campo textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+/* STATUS */
+
+.status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.recebida {
+    background: #e9eef5;
+    color: #52677d;
+}
+
+.andamento {
+    background: #e1f3ff;
+    color: #357ca8;
+}
+
+.resolvida {
+    background: #e0f5e9;
+    color: #33785a;
+}
+
+.pendente {
+    background: #fff0dd;
+    color: #a56a2a;
+}
+
+/* CALENDÁRIO */
+
+.calendario {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.dia {
+    min-height: 65px;
+    border-radius: 10px;
+    background: #f1f7fb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.dia.evento {
+    background: #eee7ff;
+    color: #7252b5;
+    font-weight: bold;
 }
 
 /* RODAPÉ */
 
-footer {
+.rodape {
+    background: var(--azul-fundo);
     padding: 22px;
-    background: var(--azul-escuro);
-    color: var(--branco);
     text-align: center;
+    color: #45647d;
+    margin-top: 35px;
 }
 
 /* RESPONSIVIDADE */
 
-@media (max-width: 800px) {
-
-    .menu-inicial {
-        grid-template-columns: repeat(2, 1fr);
-        margin-top: 45px;
+@media (max-width: 850px) {
+    .menu {
+        gap: 25px;
     }
 
-    .icone {
-        width: 120px;
-        height: 120px;
-        font-size: 3.5rem;
+    .grade {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 560px) {
-
-    header {
-        padding-top: 28px;
+@media (max-width: 550px) {
+    .logo {
+        font-size: 38px;
     }
 
-    nav {
-        gap: 6px;
+    .menu {
+        gap: 20px;
     }
 
-    nav a {
-        padding: 9px 12px;
-        font-size: 0.9rem;
+    .icone {
+        width: 68px;
+        height: 68px;
+        font-size: 30px;
     }
 
     .grade {
         grid-template-columns: 1fr;
     }
 
-    .menu-inicial {
-        gap: 30px 12px;
+    .conteudo {
+        padding: 25px 4%;
     }
 
-    .icone {
-        width: 100px;
-        height: 100px;
-        font-size: 3rem;
+    .tabela {
+        min-width: 600px;
     }
 
-    .item-inicial {
-        font-size: 1.05rem;
+    .painel {
+        overflow-x: auto;
     }
 }
+

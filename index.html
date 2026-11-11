@@ -7,55 +7,101 @@
     <title>MeuEscola - Início</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-    <header>
-        <h1 class="logo">MEUESCOLA</h1>
-    </header>
+<script src="js/auth.js"></script>
 
-    <nav>
-        <a href="index.html" class="ativo">Início</a>
-        <a href="calendario.html">Calendário</a>
-        <a href="provas-trabalhos.html">Provas e Trabalhos</a>
-        <a href="eventos.html">Eventos</a>
-    </nav>
+<header class="cabecalho">
+    <h1 class="logo">MEUESCOLA</h1>
+</header>
 
-    <main>
-        <h2 class="titulo-pagina">Bem-vindo ao MeuEscola!</h2>
+<nav class="menu">
+    <a href="index.html" class="menu-item">
+        <span class="icone">⌂</span>
+        <span>início</span>
+    </a>
 
-        <p class="subtitulo">
-            Tudo o que você precisa saber sobre sua rotina escolar
-            em um só lugar.
+    <a href="calendario.html" class="menu-item">
+        <span class="icone">▦</span>
+        <span>calendário</span>
+    </a>
+
+    <a href="atividades.html" class="menu-item">
+        <span class="icone">▤</span>
+        <span>provas e trabalhos</span>
+    </a>
+
+    <a href="eventos.html" class="menu-item">
+        <span class="icone">✳</span>
+        <span>eventos</span>
+    </a>
+
+    <a href="ouvidoria.html" class="menu-item">
+        <span class="icone">✉</span>
+        <span>ouvidoria</span>
+    </a>
+
+    <a href="acompanhar.html" class="menu-item">
+        <span class="icone">☷</span>
+        <span>acompanhar</span>
+    </a>
+
+
+</nav>
+
+<main class="conteudo">
+
+    <h2 class="titulo">Bem-vindo ao MeuEscola!</h2>
+
+    <p class="subtitulo">
+        Um espaço para organizar a rotina escolar e aproximar alunos e gestores.
+    </p>
+
+    <section class="painel">
+        <h2>Atividades da semana</h2>
+
+        <table class="tabela">
+            <tr>
+                <th>Data</th>
+                <th>Tipo</th>
+                <th>Disciplina</th>
+                <th>Descrição</th>
+            </tr>
+
+            <tr>
+                <td>26/10</td>
+                <td>Prova</td>
+                <td>Matemática</td>
+                <td>Revisão de frações</td>
+            </tr>
+
+            <tr>
+                <td>27/10</td>
+                <td>Trabalho</td>
+                <td>Ciências</td>
+                <td>Pesquisa escolar</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="painel">
+        <h2>Sua voz é importante!</h2>
+
+        <p>
+            Tem alguma reclamação, sugestão ou problema na escola?
+            Compartilhe sua opinião com a gestão.
         </p>
 
-        <section class="menu-inicial">
+        <a href="ouvidoria.html" class="botao">
+            Acessar ouvidoria
+        </a>
+    </section>
 
-            <a href="index.html" class="item-inicial">
-                <div class="icone">⌂</div>
-                <span>Início</span>
-            </a>
+</main>
 
-            <a href="calendario.html" class="item-inicial">
-                <div class="icone">▦</div>
-                <span>Calendário</span>
-            </a>
-
-            <a href="provas-trabalhos.html" class="item-inicial">
-                <div class="icone">✎</div>
-                <span>Provas e Trabalhos</span>
-            </a>
-
-            <a href="eventos.html" class="item-inicial">
-                <div class="icone">✺</div>
-                <span>Eventos</span>
-            </a>
-
-        </section>
-    </main>
-
-    <footer>
-        <p>MeuEscola - Organização e informação escolar.</p>
-    </footer>
-
+<footer class="rodape">
+    © 2026 MeuEscola - Comunicação escolar
+</footer>
 </body>
 </html>

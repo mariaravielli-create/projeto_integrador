@@ -1,0 +1,217 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MeuEscola - Acompanhamento</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="cabecalho">
+    <h1 class="logo">MEUESCOLA</h1>
+</header>
+
+<nav class="menu">
+
+    <a href="index.html" class="menu-item">
+        <span class="icone">⌂</span>
+        <span>início</span>
+    </a>
+
+    <a href="calendario.html" class="menu-item">
+        <span class="icone">▦</span>
+        <span>calendário</span>
+    </a>
+
+    <a href="atividades.html" class="menu-item">
+        <span class="icone">▤</span>
+        <span>provas e trabalhos</span>
+    </a>
+
+    <a href="eventos.html" class="menu-item">
+        <span class="icone">✳</span>
+        <span>eventos</span>
+    </a>
+
+    <a href="ouvidoria.html" class="menu-item">
+        <span class="icone">✉</span>
+        <span>ouvidoria</span>
+    </a>
+
+    <a href="acompanhar.html" class="menu-item">
+        <span class="icone">☷</span>
+        <span>acompanhar</span>
+    </a>
+
+</nav>
+
+<main class="conteudo">
+
+    <h2 class="titulo">Acompanhar manifestação</h2>
+
+    <p class="subtitulo">
+        Consulte se sua reclamação foi recebida,
+        está sendo analisada ou já foi resolvida.
+    </p>
+
+    <section class="painel">
+
+        <h2>Consultar protocolo</h2>
+
+        <form id="formConsulta" class="formulario">
+
+            <div class="campo">
+                <label for="protocolo">Número do protocolo</label>
+
+                <input
+                    type="text"
+                    id="protocolo"
+                    placeholder="Ex: MEU-123456"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="botao">
+                Consultar manifestação
+            </button>
+
+        </form>
+
+        <div id="consultaResultado"></div>
+
+    </section>
+
+    <section class="painel">
+
+        <h2>Etapas da manifestação</h2>
+
+        <p><span class="status recebida">Recebida</span></p>
+        <p>A escola recebeu sua manifestação.</p>
+
+        <br>
+
+        <p><span class="status andamento">Em andamento</span></p>
+        <p>A gestão está analisando o problema.</p>
+
+        <br>
+
+        <p><span class="status resolvida">Resolvida</span></p>
+        <p>O problema foi solucionado.</p>
+
+    </section>
+
+</main>
+
+<footer class="rodape">
+    © 2026 MeuEscola
+</footer>
+
+<script>
+
+const formulario = document.getElementById("formConsulta");
+
+formulario.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const protocoloDigitado = document
+        .getElementById("protocolo")
+        .value.trim()
+        .toUpperCase();
+
+    const resultado = document.getElementById("consultaResultado");
+
+    // Busca as manifestações salvas
+    const manifestacoes = JSON.parse(
+        localStorage.getItem("manifestacoes") || "[]"
+    );
+
+    // Procura o protocolo
+    const manifestacao = manifestacoes.find(function(item) {
+        return item.protocolo.toUpperCase() === protocoloDigitado;
+    });
+
+    if (!manifestacao) {
+
+        resultado.innerHTML = `
+            <div class="cartao" style="margin-top:20px;">
+                <h3 style="color:red;">Protocolo não encontrado!</h3>
+                <p>Verifique se você digitou o número corretamente.</p>
+            </div>
+        `;
+
+        return;
+    }
+
+    // Mostra os dados encontrados
+    const cores = {
+        "Recebida": "#71869a",
+        "Em andamento": "#3298d5",
+        "Resolvida": "#33785a",
+        "Pendente": "#a56a2a"
+    };
+
+    const cor = cores[manifestacao.status] || "#71869a";
+
+    resultado.innerHTML = `
+        <div class="cartao" style="margin-top:20px;">
+
+            <h2>Manifestação encontrada!</h2>
+
+            <p><strong>Protocolo:</strong> ${manifestacao.protocolo}</p>
+
+            <p><strong>Nome:</strong> ${escapar(manifestacao.nome)}</p>
+
+            <p><strong>Turma:</strong> ${escapar(manifestacao.turma)}</p>
+
+            <p><strong>Tipo:</strong> ${escapar(manifestacao.tipo)}</p>
+
+            <p><strong>Local:</strong> ${escapar(manifestacao.local || "Não informado")}</p>
+
+            <p><strong>Assunto:</strong> ${escapar(manifestacao.assunto)}</p>
+
+            <p><strong>Data:</strong> ${escapar(manifestacao.data)}</p>
+
+            <p><strong>Status:</strong>
+                <span style="
+                    background:${cor};
+                    color:white;
+                    padding:6px 12px;
+                    border-radius:20px;
+                ">
+                    ${escapar(manifestacao.status)}
+                </span>
+            </p>
+
+            <p><strong>Descrição:</strong></p>
+
+            <p>${escapar(manifestacao.mensagem)}</p>
+
+        </div>
+    `;
+
+});
+
+// Protege a exibição de textos enviados no formulário
+function escapar(texto) {
+    return String(texto).replace(/[&<>"']/g, function(caractere) {
+        return {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;"
+        }[caractere];
+    });
+}
+
+</script>
+
+</body>
+</html>
